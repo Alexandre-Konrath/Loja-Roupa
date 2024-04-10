@@ -15,36 +15,44 @@
 
     <title>Loja de Roupas</title>
   </head>
-  <body>
+  <body class="bg-stone-200 flex flex-col">
     <section
       id="carrinho"
-      class="fixed top-0 right-[0px] bg-indigo-950 h-screen w-[360px] text-slate-200"
+      class="fixed top-0 right-[-360px] bg-slate-950 h-screen w-[360px] text-slate-200 z-50 duration-200 border-l border-slate-200 p-5 flex flex-col justify-between"
     >
       <div id="cabecalho-carrinho" class="flex justify-between m-4">
         <p>Meu carrinho</p>
-        <button title="fechar-carrinho" id="fechar-carrinho">
-          <i onclick="{fecharCarrinho}" class="fa-solid fa-circle-xmark"></i>
+        <button title="botao" id="fechar-carrinho">
+          <i class="fa-solid fa-circle-xmark"></i>
         </button>
       </div>
-      <section id="produtos-carrinho">
-        <p>Camisa Larga com Bolsos</p>
-        <p>Casaci Reto com Lã</p>
-        <p>Jaqueta com Efeito Camurça</p>
-      </section>
+      <section id="produtos-carrinho"></section>
       <p id="preco-total">$200</p>
       <button class="bg-slate-200 text-slate-900 p-1">Finalizar Compra</button>
     </section>
-    <header class="flex bg-indigo-950 p-2 justify-between">
-      <img class="h-16" src="./src/assets/logo/hashtag.svg" alt="" />
-
+    <header
+      class="flex text-xl bg-slate-950 shadow-xl shadow-slate-400 px-8 py-4 justify-between sticky top-0 z-10"
+    >
+      <img
+        class="h-16"
+        src="./assets/logo/hashtag.svg"
+        alt="Logo do Magazine Hashtag."
+      />
       <div class="text-slate-200 flex gap-2 items-end mx-2">
-        <button title="carrinho" id="abrir-carrinho">
+        <button onclick="" title="botao" id="abrir-carrinho" class="mx-2">
           <i class="fa-solid fa-cart-shopping"></i>
         </button>
-        <button title="perfil"><i class="fa-solid fa-user"></i></button>
+        <button title="botao" class="mr-2">
+          <i class="fa-solid fa-user"></i>
+        </button>
       </div>
     </header>
-    <section id="container-produto" class="flex flex-wrap"></section>
+    <main>
+      <section
+        id="container-produto"
+        class="flex flex-wrap p-10 justify-center gap-10"
+      ></section>
+    </main>
   </body>
   <script type="module" src="./main.js"></script>
 </html>
