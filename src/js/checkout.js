@@ -1,3 +1,4 @@
+import { atualizarPrecoCarrinho } from "./menuCarrinho";
 import { desenharProdutoCarrinhoSimples, lerLocalStorage, apagarDoLocalStorage, salvarLocalStorage } from "./utilidades";
 
 function desenharProdutosCheckout() {
@@ -33,6 +34,26 @@ function finalizarCompra(evento) {
   window.location.href = window.location.origin + "/pedidos.html"
 }
 
+atualizarPrecoCarrinho()
 desenharProdutosCheckout();
 
 document.addEventListener('submit', (evt) => finalizarCompra(evt))
+
+//
+//
+
+export function manipularInput() {
+  var elementoInput = document.getElementById('nome')
+
+  var valorInput = elementoInput.value
+
+  console.log('seu nome é ' + valorInput)
+
+  salvarInputLocalStorage('input', valorInput); // Salva o valor no localStorage
+}
+
+document.addEventListener('click', manipularInput)
+
+export function salvarInputLocalStorage(chave, informacao) {
+  localStorage.setItem(chave, informacao)
+}

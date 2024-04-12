@@ -13,6 +13,15 @@
       referrerpolicy="no-referrer"
     />
   </head>
+  <script>
+    function manipularInput() {
+      var elementoInput = document.getElementById("nome");
+
+      var valorInput = elementoInput.value;
+
+      console.log("seu nome é " + valorInput);
+    }
+  </script>
   <body class="bg-stone-200 flex flex-col h-screen">
     <header
       class="flex text-xl bg-slate-950 shadow-xl shadow-slate-400 px-8 py-4 justify-between sticky top-0 z-10"
@@ -37,6 +46,7 @@
             placeholder="Seu Nome Completo"
             required
           />
+          <button onclick="manipularInput()">testeee</button>
         </div>
         <div class="flex flex-col px-10 py-3">
           <label for="email" class="font-bold text-sm mb-2">Email</label>
@@ -49,12 +59,12 @@
           />
         </div>
         <div class="flex flex-col px-10 py-3">
-          <label for="nome" class="font-bold text-sm mb-2"
+          <label for="telefone" class="font-bold text-sm mb-2"
             >Telefone de Contato</label
           >
           <input
             type="tel"
-            id="nome"
+            id="telefone"
             class="rounded-sm px-2 border-2 border-slate-200 py-1"
             placeholder="(12) 34567-8910"
             required
