@@ -47,9 +47,7 @@ export function manipularInput() {
 
   var valorInput = elementoInput.value
 
-  console.log('seu nome é ' + valorInput)
-
-  salvarInputLocalStorage('input', valorInput); // Salva o valor no localStorage
+  salvarInputLocalStorage('input', valorInput);
 }
 
 document.addEventListener('click', manipularInput)

@@ -8,7 +8,7 @@ function criarPeidoHistorico(pedidoComData) {
     hour: "2-digit",
     minute: "2-digit",
   })}</p>
-    <p>Nome da compra: ${localStorage.getItem('input')}</p>
+    <p class="nome-compra">Nome da compra: ${localStorage.getItem('input')}</p>
     <section id='container-pedidos-${pedidoComData.dataPedido
     }' class='bg-slate-300 p-3 rounded-md'></section>
   `;
