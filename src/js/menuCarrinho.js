@@ -2,6 +2,29 @@ import { lerLocalStorage, catalogo, salvarLocalStorage } from "./utilidades";
 
 const idsProdutoCarrinhoComQuantidade = lerLocalStorage('carrinho') ?? {};
 
+function atualizarQuantidadeProdutos() {
+  const quantidadeSpan = document.getElementById("quantidade-produtos");
+  let quantidadeTotal = 0;
+
+  for (const quantidade of Object.values(idsProdutoCarrinhoComQuantidade)) {
+    quantidadeTotal += quantidade;
+  }
+
+  if (quantidadeTotal === 0) {
+    quantidadeSpan.classList.add("remover-icone");
+  } else {
+    quantidadeSpan.classList.remove("remover-icone");
+  }
+
+
+  quantidadeSpan.innerText = quantidadeTotal.toString();
+
+  console.log(quantidadeTotal)
+}
+
+
+
+
 function abrirCarrinho() {
   document.getElementById("carrinho").classList.add("right-[0px]");
   document.getElementById("carrinho").classList.remove("right-[-360px]");
@@ -28,8 +51,8 @@ export function inicializarCarrinho() {
   botaoAbrirCarrinho.addEventListener("click", abrirCarrinho);
   botaoIrParaCheckout.addEventListener("click", irParaCheckout)
 
-  // Adicionando esta linha para definir o valor padrão do carrinho
   atualizarPrecoCarrinho();
+  atualizarQuantidadeProdutos()
 }
 
 
@@ -38,6 +61,7 @@ function removerDoCarrinho(idProduto) {
   salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
   atualizarPrecoCarrinho();
   rendelizarProdutosCarrinho();
+  atualizarQuantidadeProdutos();
 }
 
 function incrementarQuantidadeProduto(idProduto) {
@@ -45,6 +69,7 @@ function incrementarQuantidadeProduto(idProduto) {
   salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
   atualizarPrecoCarrinho();
   atualizarInformacaoQuantidade(idProduto)
+  atualizarQuantidadeProdutos();
 }
 
 function decrementarQuantidadeProduto(idProduto) {
@@ -56,6 +81,7 @@ function decrementarQuantidadeProduto(idProduto) {
   salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
   atualizarPrecoCarrinho();
   atualizarInformacaoQuantidade(idProduto)
+  atualizarQuantidadeProdutos();
 }
 
 function atualizarInformacaoQuantidade(idProduto) {
@@ -126,6 +152,7 @@ export function adicionarAoCarrinho(idProduto) {
   salvarLocalStorage('carrinho', idsProdutoCarrinhoComQuantidade);
   desenharProdutoNoCarrinho(idProduto);
   atualizarPrecoCarrinho();
+  atualizarQuantidadeProdutos()
 }
 
 export function atualizarPrecoCarrinho() {
